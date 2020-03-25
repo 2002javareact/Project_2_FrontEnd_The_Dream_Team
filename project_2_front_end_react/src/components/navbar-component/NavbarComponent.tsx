@@ -82,7 +82,7 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
           <Navbar bg="primary" expand="lg">   
             <Navbar.Brand>
                 <NavLink
-                to={"/homepage"} className="text-white">Medicine Time</NavLink>
+                to={"/"} className="text-white">Medicine Time</NavLink>
             </Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link>

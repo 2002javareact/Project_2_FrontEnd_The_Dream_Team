@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {store,persistor} from './Store';
 import {PersistGate} from 'redux-persist/integration/react';
 import { NavbarComponent } from './components/navbar-component/NavbarComponent';
+import { MainpageComponent } from './components/mainpage-component/MainpageComponent';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           }
           <NavbarComponent profile={{id:0,firstName:'',lastName:'',dateOfBirth:0,phoneNumber:0,email:"@@",roleType:'',username:''}} />
             <Switch>
-
+              <Route path="/mainpage" component={MainpageComponent} />
             </Switch>
           </Router>
 
