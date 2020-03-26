@@ -12,11 +12,11 @@ export const loginTypes = {
 
 export const mTLoginActionMapper = (username:string,password:string) => async (dispatch:Dispatch) => {
   try {
-    let {token,profile} = await mTLogin(username,password);
+    let profile = await mTLogin(username,password);
+    console.log(profile)
     dispatch({
       type: loginTypes.SUCCESSFUL_LOGIN,
       payload:{
-        token,
         profile
       }
     })
