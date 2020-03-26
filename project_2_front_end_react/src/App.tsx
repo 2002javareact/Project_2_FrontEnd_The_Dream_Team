@@ -9,6 +9,7 @@ import NavbarComponent from './components/navbar-component/NavbarContainer';
 import { MainpageComponent } from './components/mainpage-component/MainpageComponent';
 import DoctorListComponent from './components/doctor-list-component/DoctorListContainer';
 import LoginComponent from './components/login-component/LoginContainer';
+import ProfileComponent from './components/profile-component/ProfileContainer';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
               <Route path="/login" component={LoginComponent} />
-               
+              <Route path="/profile" component={ProfileComponent} />
             </Switch>
           </Router>
 
