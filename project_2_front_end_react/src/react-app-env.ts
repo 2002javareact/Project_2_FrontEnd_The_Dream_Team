@@ -3,13 +3,13 @@
 
 
 const devEnvironment = {
-  revatureBaseUrl:'http://localhost:2002'
+  mTBaseUrl:'http://localhost:2002'
 }
 
 
 const prodEnvironment = {
   // TODO: Add server ec2
-  revatureBaseUrl:''
+  mTBaseUrl:''
 }
 
 export let environment = devEnvironment
