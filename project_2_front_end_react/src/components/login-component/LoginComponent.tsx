@@ -5,8 +5,8 @@ import { Redirect } from 'react-router'
 interface ILoginProps {
   errorMessage:string
   token:string
-  revatureLoginActionMapper: (u:string,p:string) => void
-  revatureErrorActionMapper: () => void
+  mTLoginActionMapper: (u:string,p:string) => void
+  mTErrorActionMapper: () => void
 }
 
 interface ILoginState {
@@ -27,7 +27,7 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
   }
   submitLogin(e:SyntheticEvent){
     e.preventDefault();
-    this.props.revatureLoginActionMapper(this.state.username,this.state.password);
+    this.props.mTLoginActionMapper(this.state.username,this.state.password);
     this.setState({password:''})
   }
   handlerUsername(e:any){ 
@@ -38,7 +38,7 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
   }
   render(){
     if(this.props.errorMessage){
-      setTimeout(this.props.revatureErrorActionMapper,5000);
+      setTimeout(this.props.mTErrorActionMapper,5000);
     }
     return(
       this.props.token?(
@@ -64,9 +64,6 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
                   Submit
                 </Button>
               </Form>
-            </Col>
-            <Col>
-              <p>This is a fake app</p>
             </Col>
           </Row>
         </Container>
