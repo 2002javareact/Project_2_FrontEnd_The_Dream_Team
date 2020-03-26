@@ -2,21 +2,19 @@ import { IState } from "../../reducers"
 import React from 'react'
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
-import User from "../../models/User"
+import {User} from "../../models/User"
 
 
 interface INavbarProps {
-  profile:User
+  profile:User,
+  mTLogoutActionMapper:()=>void
 }
 
 export class NavbarComponent extends React.Component<INavbarProps,any>{
-  constructor(props:any){
-    super(props);
-  }
   render(){
     return (
       <React.Fragment>
-        {this.props.profile.id!==0?(
+        {this.props.profile && this.props.profile.id!==0?(
           <Navbar bg="primary" expand="lg">
             <Navbar.Brand>
               <NavLink
@@ -73,7 +71,7 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
                   <NavLink
                     to="/"
                     className="text-white"
-                    onClick={()=>(console.log('TODO'))}>Logout</NavLink>
+                    onClick={this.props.mTLogoutActionMapper}>Logout</NavLink>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

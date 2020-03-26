@@ -1,11 +1,11 @@
 import React from 'react'
-import { Row } from './node_modules/reactstrap'
+//import { Row } from './node_modules/reactstrap'
 
-interface ICardDeckProps{
-    elementsPerRow:number
-}
+// interface ICardDeckProps{
+//     elementsPerRow:number
+// }
 
-export class CardDeck extends React.Component<ICardDeckProps,any>{
+export class CardDeck extends React.Component{//<ICardDeckProps,any>{
     render(){
         //final displaye array
         let displayArray = []
@@ -14,15 +14,16 @@ export class CardDeck extends React.Component<ICardDeckProps,any>{
         //get length of full array because we will be slicing it
         let length = children.length
         //loop through and build rows with elements per row in each
-        for(let i = 0; i < length; i+=this.props.elementsPerRow){
-            displayArray.push(<Row key={'cards' + i} children={
-                children.splice(0,this.props.elementsPerRow)
-            }/>)
-        }
+        // for(let i = 0; i < length; i+=this.props.elementsPerRow){
+        //     displayArray.push(<Row key={'cards' + i} children={
+        //         children.splice(0,this.props.elementsPerRow)
+        //     }/>)
+        // }
         
         return (
             <div>
-                {displayArray}
+                {//displayArray}
+    }
             </div>
         )
     }
