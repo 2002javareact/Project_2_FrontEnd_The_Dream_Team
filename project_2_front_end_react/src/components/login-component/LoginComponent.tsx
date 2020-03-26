@@ -1,10 +1,11 @@
 import React, { SyntheticEvent } from 'react'
 import { Container, Form, Button, Col, Row, Alert } from 'react-bootstrap'
 import { Redirect } from 'react-router'
+import {User} from '../../models/User'
 
 interface ILoginProps {
   errorMessage:string
-  token:string
+  profile:User
   mTLoginActionMapper: (u:string,p:string) => void
   mTErrorActionMapper: () => void
 }
@@ -41,7 +42,7 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
       setTimeout(this.props.mTErrorActionMapper,5000);
     }
     return(
-      this.props.token?(
+      this.props.profile && this.props.profile.id!==0?(
         <Redirect to="/mainpage" />
       ):(
         <Container className="p-5">
@@ -52,13 +53,13 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
               <Form onSubmit={this.submitLogin}>
                 <Form.Group controlId="formUsername">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control onChange={this.handlerUsername} type="text" placeholder="Enter Username"/>
+                  <Form.Control onChange={this.handlerUsername} type="text" value={this.state.username} placeholder="Enter Username"/>
                   <Form.Text className="text-muted">
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Password</Form.Label>
-                  <Form.Control onChange={this.handlerPassword} type="password" placeholder="Password" />
+                  <Form.Control onChange={this.handlerPassword} type="password" value={this.state.password} placeholder="Password" />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                   Submit

@@ -16,7 +16,7 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
   render(){
     return (
       <React.Fragment>
-        {this.props.profile.id!==0?(
+        {this.props.profile && this.props.profile.id!==0?(
           <Navbar bg="primary" expand="lg">
             <Navbar.Brand>
               <NavLink

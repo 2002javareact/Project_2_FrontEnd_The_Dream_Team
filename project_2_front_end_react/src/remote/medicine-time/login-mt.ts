@@ -9,7 +9,7 @@ export async function mTLogin(username:string,password:string):Promise<any> {
     password
   }
   try{
-    let response = await mTClient.post('/login',credentials)
+    let response = await mTClient.post('/users/login',credentials)
       .catch((e)=>{throw e});
     return response.data
   }
