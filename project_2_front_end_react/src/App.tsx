@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {store,persistor} from './Store';
 import {PersistGate} from 'redux-persist/integration/react';
-import { NavbarComponent } from './components/navbar-component/NavbarComponent';
+import NavbarComponent from './components/navbar-component/NavbarContainer';
 import { MainpageComponent } from './components/mainpage-component/MainpageComponent';
 import { DoctorListComponent } from './components/doctor-list-component/DoctorListComponent';
 import LoginComponent from './components/login-component/LoginContainer';
@@ -16,9 +16,7 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router >
-          {// TODO
-          }
-          <NavbarComponent profile={{id:0,firstName:'',lastName:'',dateOfBirth:0,phoneNumber:0,email:"@@",roleType:'',username:''}} />
+          <NavbarComponent />
             <Switch>
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
