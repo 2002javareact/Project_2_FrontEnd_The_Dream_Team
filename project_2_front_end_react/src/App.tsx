@@ -8,6 +8,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import { NavbarComponent } from './components/navbar-component/NavbarComponent';
 import { MainpageComponent } from './components/mainpage-component/MainpageComponent';
 import { DoctorListComponent } from './components/doctor-list-component/DoctorListComponent';
+import LoginComponent from './components/login-component/LoginContainer';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Switch>
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
+              <Route path="/login" component={LoginComponent} />
+               
             </Switch>
           </Router>
 
