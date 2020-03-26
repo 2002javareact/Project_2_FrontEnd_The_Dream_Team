@@ -6,17 +6,24 @@ import { Doctor } from '../../models/Doctor';
 import {User} from '../../models/User';
 
 interface DoctorListProps {
-  doctorList:Doctor[],
-  profile:User
+  doctorList:Array<Doctor>,
+  profile:User,
+  mTDoctorListActionMapper: () => void,
+  errorMessage:string
 }
 
 export class DoctorListComponent extends React.Component<DoctorListProps,any>{
+  componentDidMount(){
+    if(this.props.doctorList.length===0){
+      this.props.mTDoctorListActionMapper();
+    }
+  }
   render(){
     return(
       <Container fluid>
         <Row>
           <SideBarComponent/>
-          <Col lg={10} style={{height:"100vh"}} className="p-0">
+          <Col lg={10} className="p-0">
             <Container>
               <Row>
                 <Col>
@@ -31,15 +38,21 @@ export class DoctorListComponent extends React.Component<DoctorListProps,any>{
                       </tr>
                     </thead>
                     <tbody>
-                      {this.props.doctorList.map((el)=>
+                      {this.props.doctorList && this.props.doctorList.length !==0?(
+                        this.props.doctorList.map((el)=>
+                          <tr>
+                            <td>{el.id}</td>
+                            <td>{el.firstName} {el.lastName}</td>
+                            <td>{el.email + '\n' + el.phoneNumber}</td>
+                            <td><NavLink
+                                to="/doctor/:id">View Page</NavLink></td>
+                            <td><NavLink
+                                to="/patient-list">View Patient List</NavLink></td>
+                          </tr>
+                        )
+                      ):(
                         <tr>
-                          <td>{el.id}</td>
-                          <td>{el.firstName} {el.lastName}</td>
-                          <td>{el.email + '\n' + el.phoneNumber}</td>
-                          <td><NavLink
-                              to="/doctor/:id">View Page</NavLink></td>
-                          <td><NavLink
-                              to="/patient-list">View Patient List</NavLink></td>
+                          <td colSpan={5}>Cannot find any doctors</td>
                         </tr>
                       )}
                     </tbody>

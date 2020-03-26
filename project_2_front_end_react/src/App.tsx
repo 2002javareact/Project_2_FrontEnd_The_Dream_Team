@@ -7,7 +7,7 @@ import {store,persistor} from './Store';
 import {PersistGate} from 'redux-persist/integration/react';
 import NavbarComponent from './components/navbar-component/NavbarContainer';
 import { MainpageComponent } from './components/mainpage-component/MainpageComponent';
-import { DoctorListComponent } from './components/doctor-list-component/DoctorListComponent';
+import DoctorListComponent from './components/doctor-list-component/DoctorListContainer';
 import LoginComponent from './components/login-component/LoginContainer';
 
 function App() {
