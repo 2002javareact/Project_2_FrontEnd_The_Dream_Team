@@ -1,4 +1,4 @@
-import User from "./User";
+import {User} from "./User";
 import { Patient } from "./Patient";
 
 export class Doctor extends User{

@@ -2,7 +2,7 @@ import { IState } from "../../reducers"
 import React from 'react'
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
-import User from "../../models/User"
+import {User} from "../../models/User"
 
 
 interface INavbarProps {
