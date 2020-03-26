@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { Doctor } from '../../models/Doctor';
 import { CardDeck } from '../card-deck-component/CardDeckComponent';
 import { AllMedicine } from '../../models/AllMedicine';
-import { AllMedicineInfoComponent } from '../all-medicine-info-component/AllMedicineInfoComponent';
+import { AllMedicineInfoComponent } from '../general-components/all-medicine-info-component/AllMedicineInfoComponent';
 
 interface IViewAllMedicineProps {
     doctor:Doctor
