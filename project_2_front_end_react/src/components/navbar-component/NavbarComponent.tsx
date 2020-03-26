@@ -6,13 +6,11 @@ import {User} from "../../models/User"
 
 
 interface INavbarProps {
-  profile:User
+  profile:User,
+  mTLogoutActionMapper:()=>void
 }
 
 export class NavbarComponent extends React.Component<INavbarProps,any>{
-  constructor(props:any){
-    super(props);
-  }
   render(){
     return (
       <React.Fragment>
@@ -73,7 +71,7 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
                   <NavLink
                     to="/"
                     className="text-white"
-                    onClick={()=>(console.log('TODO'))}>Logout</NavLink>
+                    onClick={this.props.mTLogoutActionMapper}>Logout</NavLink>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
