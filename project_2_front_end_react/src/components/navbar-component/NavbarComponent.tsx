@@ -43,15 +43,15 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
                   <NavDropdown title="Options" id="basic-nav-dropdown" >
                     <NavDropdown.Item>
                       <NavLink
-                        to="/doctor-list-page" className="text-dark">Doctor List</NavLink>
+                        to="/doctor-list" className="text-dark">Doctor List</NavLink>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
                       <NavLink
-                        to="/patient-list-page" className="text-dark">Patient List</NavLink>
+                        to="/patient-list" className="text-dark">Patient List</NavLink>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
                       <NavLink
-                        to="/medicine-list-page" className="text-dark">Medicine List</NavLink>
+                        to="/medicine-list" className="text-dark">Medicine List</NavLink>
                     </NavDropdown.Item>
                   </NavDropdown>
                 }
@@ -59,11 +59,11 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
                   <NavDropdown title="Options" id="basic-nav-dropdown">
                     <NavDropdown.Item>
                       <NavLink
-                        to="/patient-list-page" className="text-dark">Patient List</NavLink>
+                        to="/patient-list" className="text-dark">Patient List</NavLink>
                     </NavDropdown.Item>
                     <NavDropdown.Item>
                       <NavLink
-                        to="/medicine-list-page" className="text-dark">Medicine List</NavLink>
+                        to="/medicine-list" className="text-dark">Medicine List</NavLink>
                     </NavDropdown.Item>
                   </NavDropdown>
                 }

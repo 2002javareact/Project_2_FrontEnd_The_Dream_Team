@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 export class SideBarComponent extends React.PureComponent{
   render(){
     return(
-      <Col lg={2} style={{height:"100vh"}} className="p-0">
-        <ListGroup className="w-100 mh-100" style={{height:"100vh"}}>
+      <Col lg={2} className="p-0">
+        <ListGroup className="w-100" >
           <NavLink
             to="/doctor-list-page"
             className="p-3">Doctor List Page</NavLink>
