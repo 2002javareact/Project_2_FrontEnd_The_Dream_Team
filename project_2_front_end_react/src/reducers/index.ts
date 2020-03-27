@@ -22,9 +22,11 @@ export interface IState{
   doctorList: IDoctorListState
   // @Taco I couldnt find ur medicine reducer so i commented this out
   //medicine:IAllMedicineState
+  //fair
 }
 
 export const state = combineReducers<IState>({
   login:loginReducer,
   doctorList:doctorListReducer
+  //medicine:allMedicineReducer
 })

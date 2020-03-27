@@ -1,6 +1,5 @@
 import React from 'react'
-//import { CardText, Card, CardTitle } from 'reactstrap'
-import { Button } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { AllMedicine } from '../../models/AllMedicine'
 
 interface IUserInfoProps{
@@ -10,12 +9,12 @@ interface IUserInfoProps{
 export class AllMedicineInfoComponent extends React.Component<IUserInfoProps,any>{
     render(){
         return(
-            // <Card>
-            //     <CardTitle style={{color:"red"}}>{this.props.allMedicine.name}</CardTitle>
-            //     <CardText>{`Description: ${this.props.allMedicine.description}`}</CardText>
-            //     <Button>{`Add Medicine`}</Button>
-            // </Card>
-            <div></div>
+            <Card style={{ width: '18rem' }}>
+                <Card.Title style={{color:"red"}}>{this.props.allMedicine.name}</Card.Title>
+                <Card.Text>{`Description: ${this.props.allMedicine.description}`}</Card.Text>
+                <Card.Link /*add return value from get one Medicine*/>{`Add Medicine`}</Card.Link>
+            </Card>
+          
         )
     }
 }
