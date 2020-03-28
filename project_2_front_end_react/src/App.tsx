@@ -17,12 +17,15 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router >
-          <NavbarComponent />
+          <NavbarComponent/>
             <Switch>
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
               <Route path="/login" component={LoginComponent} />
               <Route path="/profile" component={ProfileComponent} />
+              <Route path = "/medicine/add" /**component = {}*//>
+              <Route path = "/medicine/update" /**component = {}*//>
+              <Route path = "/medicine" /**component = {}*//>
             </Switch>
           </Router>
 
