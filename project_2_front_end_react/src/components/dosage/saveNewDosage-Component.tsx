@@ -1,4 +1,4 @@
-
+//need some fix in react-bootstrap
 import React, { SyntheticEvent } from 'react'
 import { Form, FormGroup,  Col,  Button, Table, InputGroup,  ButtonGroup, FormControl } from 'react-bootstrap'
 //import { User } from '../../../models/user'
@@ -123,4 +123,4 @@ export class SubmiteDosageComponent extends React.Component <ISubmiteDosageProps
         // <Redirect to='/'/>
      )
  }
-}
+} 

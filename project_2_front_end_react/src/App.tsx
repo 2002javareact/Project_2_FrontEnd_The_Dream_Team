@@ -10,6 +10,7 @@ import { MainpageComponent } from './components/mainpage-component/MainpageCompo
 import DoctorListComponent from './components/doctor-list-component/DoctorListContainer';
 import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
+import saveNewDosageComponent from './components/dosage/saveNewDosage-Container';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/doctor-list" component={DoctorListComponent} />
               <Route path="/login" component={LoginComponent} />
               <Route path="/profile" component={ProfileComponent} />
+              <Route path="/dosage" component={saveNewDosageComponent} />
             </Switch>
           </Router>
 
