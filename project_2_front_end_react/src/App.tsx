@@ -18,13 +18,19 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router >
-          <NavbarComponent />
+          <NavbarComponent/>
             <Switch>
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
               <Route path="/login" component={LoginComponent} />
               <Route path="/profile" component={ProfileComponent} />
+<<<<<<< HEAD
               <Route path="/dosage" component={saveNewDosageComponent} />
+=======
+              <Route path = "/medicine/add" /**component = {}*//>
+              <Route path = "/medicine/update" /**component = {}*//>
+              <Route path = "/medicine" /**component = {}*//>
+>>>>>>> 766570fd81bf70b9608eb06bb191fb7d67b9355c
             </Switch>
           </Router>
 
