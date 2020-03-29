@@ -2,12 +2,9 @@ import { InternalServerError } from './../../errors/InternalServerError';
 import { mTClient } from './mt-client';
 import { AllMedicine } from '../../models/AllMedicine';
 
-export async function updateMedicine(am:AllMedicine):Promise<any> {
-  let req = {
-      am
-  }
+export async function getOneMedicine(id:number):Promise<any> {
   try{
-    let response = await mTClient.patch('/Medicine', req)
+    let response = await mTClient.post('/Medicine/'+id)
     return response.data
   }
   catch (e) {
