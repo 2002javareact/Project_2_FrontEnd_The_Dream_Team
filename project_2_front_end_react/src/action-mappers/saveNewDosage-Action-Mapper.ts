@@ -8,9 +8,21 @@ export const submiteDosageTypes = {
 }
 
 
-export const submiteDosageActionMapper = ( date:Date,medicationId:string) => async  (dispatch:Dispatch) => {
+export const submiteDosageActionMapper = ( days:number,dosage:number,medicationId:string) => async  (dispatch:Dispatch) => {
     try {
-        let submiteDosage = await submiteDosageData(date,medicationId)
+        let submiteDosage
+        let count = days*dosage
+     let currentTime=new Date
+     let hour =Math.round(24/dosage)
+     console.log(`dosage = ${dosage} but days = ${days}`);
+     
+     for (let i = 0; i < count; i++) {//change 1 to count
+       currentTime.setHours(currentTime.getHours() + hour);
+       //console.log(currentTime  );
+         submiteDosage = await submiteDosageData(currentTime,medicationId)
+        console.log( 'we are in action mapper ' +currentTime);
+     }
+        
         dispatch({
           type:  submiteDosageTypes.SUBMITE_Dosage,
           payload:{

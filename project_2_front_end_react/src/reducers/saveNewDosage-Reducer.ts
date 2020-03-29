@@ -5,7 +5,7 @@ import { submiteDosageTypes } from "../action-mappers/saveNewDosage-Action-Mappe
 
 
 const initialState:ISubmiteDosageState = {
-    SubmiteDosege: new Dosage (0,new Date,0),
+    SubmiteDosege: new Dosage (0,new Date(0),0),
     errorMessage:''
 }
 
@@ -14,13 +14,13 @@ export const submiteDosageReducer = (state = initialState, action:AnyAction ) =>
         case submiteDosageTypes.SUBMITE_Dosage:{
             return {
                 ...state,
-                submiteDosage:action.payload.submiteReim
+                submiteDosage:action.payload.SubmiteDosege
             }
         }  
         case submiteDosageTypes.FAILED_TO_SUBMITE_DOSAGE:{
             return {
                 ...state,
-                errorMessage:'Failed to Submite The Reimbursement'
+                errorMessage:'Failed to Submite The Dosage'
             }
         } 
         default:
