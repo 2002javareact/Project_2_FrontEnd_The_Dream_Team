@@ -13,7 +13,8 @@ interface PatientListProps {
 
 interface PatientListState {
   patientList:Array<Patient>,
-  doctorId:number
+  doctorId:number,
+  isShow:boolean
 }
 
 export class PatientListComponent extends React.Component<PatientListProps,PatientListState>{
@@ -21,16 +22,20 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
     super(props);
     this.state = {
       patientList: [],
-      doctorId: 0
+      doctorId: 0,
+      isShow:true
     }
     this.handlerDoctorId=this.handlerDoctorId.bind(this);
     this.submitDoctorId=this.submitDoctorId.bind(this);
+    this.submitDoctorId2=this.submitDoctorId2.bind(this);
   }
   async componentDidMount(){
     if(this.props.location.state && this.props.location.state.doctorId){
       const patientList = await mTGetPatientListByDoctorId(this.props.location.state.doctorId);
       this.setState({
-        patientList: patientList
+        patientList: patientList,
+        doctorId:this.props.location.state.doctorId,
+        isShow:false
       })
     }
     if(this.props.profile.roleType==="Doctor"){
@@ -50,6 +55,15 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
       patientList: patientList
     })
   }
+  async submitDoctorId2(e:any){
+    e.preventDefault();
+    const patientList = await mTGetPatientListByDoctorId(0)
+    console.log(patientList)
+    this.setState({
+      isShow:true,
+      patientList: patientList,
+    })
+  }
   render(){
     return(
       <Container fluid>
@@ -60,23 +74,24 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
               {this.props.profile.roleType==="Admin" && 
                 <Row>
                   <Col>
-                  <Tabs defaultActiveKey="noDoctor" id="uncontrolled-tab-example">
-                    <Tab eventKey="noDoctor" title="Patients without a Doctor" onClick={()=>this.submitDoctorId(0)}>
-                    </Tab>
-                    <Tab eventKey="Doctor" title="Patients with a Doctor">
-                      <Form onSubmit={(e:any)=>this.submitDoctorId(e)}>
-                        <Form.Group as={Row}>
-                          <Form.Label column sm={2}>Doctor ID:</Form.Label>
-                          <Col sm={8}>
-                            <Form.Control defaultValue={this.state.doctorId} type="number" onChange={this.handlerDoctorId} />
-                          </Col>
-                          <Col sm={2}>
-                            <Button>Search</Button>
-                          </Col>
-                        </Form.Group>
-                      </Form>
-                    </Tab>
-                  </Tabs>
+                    {this.state.isShow?(
+                      <Button onClick={()=>{this.setState({isShow:false})}}>Show Patients with a Doctor</Button>
+                    ):(
+                      <React.Fragment>
+                        <Button onClick={this.submitDoctorId2}>Show Patients without a Doctor</Button>
+                        <Form onSubmit={(e:any)=>this.submitDoctorId(e)}>
+                          <Form.Group as={Row}>
+                            <Form.Label column sm={2}>Doctor ID:</Form.Label>
+                            <Col sm={8}>
+                              <Form.Control placeholder="Enter Doctor ID" defaultValue={this.state.doctorId} type="number" onChange={this.handlerDoctorId} />
+                            </Col>
+                            <Col sm={2}>
+                              <Button type="submit">Search</Button>
+                            </Col>
+                          </Form.Group>
+                        </Form>
+                      </React.Fragment>
+                    )}
                   </Col>
                 </Row>
               }

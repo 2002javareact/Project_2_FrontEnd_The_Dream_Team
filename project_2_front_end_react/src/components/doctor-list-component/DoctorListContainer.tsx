@@ -5,6 +5,7 @@ import { mTDoctorListActionMapper } from '../../action-mappers/doctor-list-actio
 
 const mapStateToProps = (state:IState) => {
   return { 
+    profile:state.login.profile,
     doctorList:state.doctorList.doctorList,
     errorMessage:state.doctorList.errorMessage
   }

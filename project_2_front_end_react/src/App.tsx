@@ -8,7 +8,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import NavbarComponent from './components/navbar-component/NavbarContainer';
 import MainpageComponent from './components/mainpage-component/MainpageContainer';
 import DoctorListComponent from './components/doctor-list-component/DoctorListContainer';
-import { PatientListComponent } from './components/patient-list-component/PatientListComponent';
+import PatientListComponent from './components/patient-list-component/PatientListContainer';
 import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
 import PatientComponent from './components/patient-component/PatientContainer';
