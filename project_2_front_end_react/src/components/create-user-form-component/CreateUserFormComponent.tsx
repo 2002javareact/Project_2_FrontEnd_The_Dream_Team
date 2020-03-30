@@ -54,6 +54,7 @@ export class CreateUserFormComponent extends React.Component<any,CreateUserFormS
                 <Col>
                   <Form.Group controlId="lastName">
                     <Form.Label>Last Name</Form.Label>
+                    <Form.Control onChange={this.handlerLastName} placeholder="Last Name" value={this.state.lastName}/>
                   </Form.Group>
                 </Col>   
               </Row>
@@ -61,6 +62,7 @@ export class CreateUserFormComponent extends React.Component<any,CreateUserFormS
                 <Col>
                   <Form.Group controlId="dateOfBirth">
                     <Form.Label>Date of Birth</Form.Label>
+                    <Form.Control type="date" onChange={this.handlerDateOfBirth} placeholder="Date of Birth" value={'YYYY-MM-dd'}/>
                   </Form.Group>
                 </Col>
               </Row>
