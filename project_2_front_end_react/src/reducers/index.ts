@@ -37,25 +37,15 @@ export interface IState{
   login: ILoginState,
   doctorList: IDoctorListState,
   newDosage:ISubmiteDosageState
-<<<<<<< HEAD
   medicine:IAllMedicineState
-=======
-  // @Taco I couldnt find ur medicine reducer so i commented this out
-  //medicine:IAllMedicineState
-  //fair
   medicationByIdArr: IMediationByIdState
-  
->>>>>>> 5b2624cff9d837ce8b660107c9ccfaccbfa4a140
+
 }
 
 export const state = combineReducers<IState>({
   login:loginReducer,
   doctorList:doctorListReducer,
   newDosage:submiteDosageReducer,
-<<<<<<< HEAD
+  medicationByIdArr:medicationByIdReducer,
   medicine:allMedicineReducer
-=======
-  medicationByIdArr:medicationByIdReducer
-  //medicine:allMedicineReducer
->>>>>>> 5b2624cff9d837ce8b660107c9ccfaccbfa4a140
 })
