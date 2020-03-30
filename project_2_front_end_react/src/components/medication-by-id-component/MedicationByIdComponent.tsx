@@ -25,6 +25,8 @@ export class MedicationByIdComponent extends Component<IMedicationByIdProps,any>
 
     componentDidMount(){
         this.props.mTGetMedicationByIdActionMapper(this.props.profile.id);
+        console.log('we are in mede component '+ this.props.profile.id);
+        
     }
 
     

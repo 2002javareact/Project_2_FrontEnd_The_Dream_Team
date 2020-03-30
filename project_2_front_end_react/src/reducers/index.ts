@@ -25,7 +25,7 @@ export interface IAllMedicineState{
   medicine:AllMedicine
 }
 
-export interface IMediationByIdState{
+export interface IMedicationByIdState{
   medicationByIdArr:Array<Medication>,
   errorMessage:string
 }
@@ -39,7 +39,7 @@ export interface IState{
   doctorList: IDoctorListState,
   newDosage:ISubmiteDosageState
   medicine:IAllMedicineState
-  medicationByIdArr: IMediationByIdState
+  medicationByIdArr: IMedicationByIdState
 
 }
 

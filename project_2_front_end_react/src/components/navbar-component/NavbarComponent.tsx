@@ -53,6 +53,10 @@ export class NavbarComponent extends React.Component<INavbarProps,any>{
                       <NavLink
                         to="/medicine-list" className="text-dark">Medicine List</NavLink>
                     </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <NavLink
+                        to="/dosage" className="text-dark">Dosage Time</NavLink>
+                    </NavDropdown.Item>
                   </NavDropdown>
                 }
                 {this.props.profile.roleType==="doctor" &&   

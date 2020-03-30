@@ -22,7 +22,7 @@ export class DoctorListComponent extends React.Component<DoctorListProps,any>{
     return(
       <Container fluid>
         <Row>
-          <SideBarComponent/>
+          <SideBarComponent profile={this.props.profile}/>
           <Col lg={10} className="p-0">
             <Container>
               <Row>

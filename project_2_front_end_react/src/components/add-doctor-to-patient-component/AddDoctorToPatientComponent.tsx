@@ -1,13 +1,14 @@
 import React, { SyntheticEvent } from 'react';
 import { SideBarComponent } from '../mainpage-component/side-bar-component/SideBarComponent';
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import { Patient } from '../../models/Patient';
 import { Doctor } from '../../models/Doctor';
 import { mTSaveDoctorToPatient } from '../../remote/medicine-time/patient-mt';
+import { User } from '../../models/User';
 
 interface AddDoctorToPatientProps{
-  patient:Patient,
+  location:any,
+  profile:User
 }
 
 interface AddDoctorToPatientState{
@@ -15,7 +16,7 @@ interface AddDoctorToPatientState{
   isPatientSuccess:boolean
 }
 
-export class AddDoctorToPatientComponent extends React.Component<AddDoctorToPatientProps,AddDoctorToPatientState>{
+export class AddDoctorToPatientComponent extends React.Component<any,AddDoctorToPatientState>{
   constructor(props:any){
     super(props);
     this.state = {
@@ -36,7 +37,7 @@ export class AddDoctorToPatientComponent extends React.Component<AddDoctorToPati
     return(
       <Container>
         <Row>
-          <SideBarComponent/>
+          <SideBarComponent profile={this.props.profile}/>
           <Col lg={10} className="p-0">
             <Container>
               <Row>
