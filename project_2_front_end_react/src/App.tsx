@@ -17,7 +17,7 @@ import saveNewDosageComponent from './components/dosage/saveNewDosage-Container'
 import ViewAllMedicineComponent from './components/view-all-medicine-component/ViewAllMedicineContainer';
 import  UpdateMedicineComponent  from './components/update-medicine-component/UpdateMedicineContainer';
 import  AddMedicineComponent  from './components/add-medicine-component/AddMedicineContainer';
-import {MedicationByIdComponent} from './components/medication-by-id-component/MedicationByIdComponent';
+import MedicationByIdComponent from './components/medication-by-id-component/MedicationByIdContainer';
 
 function App() {
   return (
@@ -33,12 +33,13 @@ function App() {
               <Route path="/patient" component={PatientComponent} />
               <Route path="/create-user-form" component={CreateUserFormComponent}/>
               <Route path="/login" component={LoginComponent} />
+              <Route path = "/profile/medication" component= {MedicationByIdComponent}/>
               <Route path="/profile" component={ProfileComponent} />
               <Route path="/dosage" component={saveNewDosageComponent} />
               <Route path = "/medicine/add" component = {AddMedicineComponent}/**add*//>
               <Route path = "/medicine/update" component = {UpdateMedicineComponent}/**update*//>
               <Route path = "/medicine" component = {ViewAllMedicineComponent}/**view all*//> 
-              <Route path = "medication" component= {MedicationByIdComponent}/>
+              
             </Switch>
           </Router>
 

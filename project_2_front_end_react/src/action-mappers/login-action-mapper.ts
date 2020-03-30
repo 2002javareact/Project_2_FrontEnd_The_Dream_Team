@@ -1,6 +1,7 @@
 import { User } from './../models/User';
 import { Dispatch } from 'redux';
 import { mTLogin} from '../remote/medicine-time/login-mt';
+import { Dosage } from '../models/Dosage';
 
 export const loginTypes = {
   SUCCESSFUL_LOGIN: "MT_SUCCESSFUL_LOGIN",
@@ -47,7 +48,9 @@ export const mTLogoutActionMapper = () => (dispatch:Dispatch) => {
   dispatch({
     type: loginTypes.LOGOUT,
     payload:{
-      profile: new User(0,'','',new Date(0),0,'','','')
+      profile: new User(0,'','',new Date(0),0,'','',''),
+      SubmiteDosege:new Dosage(0,new Date(0),0)
+
     }
   })
 }

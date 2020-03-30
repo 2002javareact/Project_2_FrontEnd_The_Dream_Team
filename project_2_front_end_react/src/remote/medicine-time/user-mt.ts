@@ -5,7 +5,9 @@ import { UpdateUserDTO } from '../../dtos/UpdateUserDTO';
 
 export async function mTGetUserById(userId:number):Promise<any> {
   try{
-    let response = await mTClient.get(`/users/${userId}`)
+    console.log(userId +' we are in remote');
+    
+    let response = await mTClient.get(`/patients/${userId}`)
       .catch((e)=>{throw e});
     return response.data
   }

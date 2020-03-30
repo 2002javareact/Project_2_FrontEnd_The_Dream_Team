@@ -1,11 +1,11 @@
 import {medicationByIdTypes} from './../action-mappers/medication-action-mapper';
 import { AnyAction } from 'redux';
-import {IMediationByIdState} from '.';
+import {IMedicationByIdState} from '.';
 
 
 
 
-const initialState:IMediationByIdState={
+const initialState:IMedicationByIdState={
     medicationByIdArr: [],
     errorMessage: ''
 }

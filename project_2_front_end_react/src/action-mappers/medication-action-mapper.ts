@@ -13,6 +13,8 @@ export const medicationByIdTypes = {
 
 export const mTGetMedicationByIdActionMapper = (patient_id:number) => async (dispatch:Dispatch) => {
     try {
+      console.log('we are in action mapper '+patient_id);
+      
       let medicationByIdArr:Array<Medication> = await mTGetMedicationById(patient_id);
       dispatch({
           type: medicationByIdTypes.SUCCESSFUL,
