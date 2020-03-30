@@ -33,7 +33,7 @@ export interface IUpdateMedicineState{
 }
 
 export interface IMedicationByIdState{
-  medicationByIdArr:Medication[],
+  medicationByIdArr:Array<Medication>,
   errorMessage:string
 }
 export interface ISubmiteDosageState{

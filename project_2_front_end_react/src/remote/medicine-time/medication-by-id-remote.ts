@@ -6,7 +6,7 @@ export async function mTGetMedicationById(patient_Id:number):Promise<any> {
 
     
     try{
-    let response = await mTClient.get('/medication/'+patient_Id)
+    let response = await mTClient.get('/medication/'+ 1)
     .catch((e) => {     
       throw e
     });
