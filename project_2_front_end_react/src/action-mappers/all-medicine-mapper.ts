@@ -7,7 +7,7 @@ export const loginTypes = {
   INTERNAL_SERVER: "MT_INTERNAL_SERVER_ERROR",
 }
 
-export const getAllMedicineMapper = () => async (dispatch:Dispatch) => {
+export const getAllMedicineActionMapper = () => async (dispatch:Dispatch) => {
   try {
     let allMedicine = await getAllMedicine();
     console.log(allMedicine)

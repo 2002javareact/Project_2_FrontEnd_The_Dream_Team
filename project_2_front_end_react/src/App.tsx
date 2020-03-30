@@ -11,6 +11,10 @@ import DoctorListComponent from './components/doctor-list-component/DoctorListCo
 import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
 import saveNewDosageComponent from './components/dosage/saveNewDosage-Container';
+import ViewAllMedicineComponent from './components/view-all-medicine-component/ViewAllMedicineContainer';
+import  UpdateMedicineComponent  from './components/update-medicine-component/UpdateMedicineContainer';
+import  AddMedicineComponent  from './components/add-medicine-component/AddMedicineContainer';
+
 
 function App() {
   return (
@@ -25,9 +29,9 @@ function App() {
               <Route path="/login" component={LoginComponent} />
               <Route path="/profile" component={ProfileComponent} />
               <Route path="/dosage" component={saveNewDosageComponent} />
-              <Route path = "/medicine/add" /**component = {}*//>
-              <Route path = "/medicine/update" /**component = {}*//>
-              <Route path = "/medicine" /**component = {}*//>
+              <Route path = "/medicine/add" component = {AddMedicineComponent}/**add*//>
+              <Route path = "/medicine/update" component = {UpdateMedicineComponent}/**update*//>
+              <Route path = "/medicine" component = {ViewAllMedicineComponent}/**view all*//> 
             </Switch>
           </Router>
 

@@ -4,7 +4,7 @@ import { AllMedicine } from '../../models/AllMedicine';
 
 export async function getOneMedicine(id:number):Promise<any> {
   try{
-    let response = await mTClient.post('/Medicine/'+id)
+    let response = await mTClient.get('/Medicine/'+id)
     return response.data
   }
   catch (e) {

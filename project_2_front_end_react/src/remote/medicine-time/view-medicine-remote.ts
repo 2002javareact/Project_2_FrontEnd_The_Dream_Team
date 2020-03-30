@@ -4,6 +4,7 @@ import { mTClient } from './mt-client';
 
 export async function getAllMedicine():Promise<any> {
   try{
+    
     let response = await mTClient.get('/Medicine')
     return response.data
   }

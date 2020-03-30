@@ -12,7 +12,7 @@ interface IViewAllMedicineProps {
 }
 
 
-export class ViewAllMedicineComponent extends React.Component<IViewAllMedicineProps,any>{
+export class UpdateMedicineComponent extends React.Component<IViewAllMedicineProps,any>{
 
     constructor(props:any){
         super(props)

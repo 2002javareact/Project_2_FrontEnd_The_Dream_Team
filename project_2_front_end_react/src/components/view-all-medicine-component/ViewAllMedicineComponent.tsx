@@ -4,9 +4,10 @@ import { Doctor } from '../../models/Doctor';
 import { CardDeck } from '../card-deck-component/CardDeckComponent';
 import { AllMedicine } from '../../models/AllMedicine';
 import { AllMedicineInfoComponent } from '../general-components/all-medicine-info-component/AllMedicineInfoComponent';
+import { User } from '../../models/User';
 
 interface IViewAllMedicineProps {
-    doctor:Doctor
+    currUser:User
     allMedicine:AllMedicine[]
     errorMessage:string
     getAllMedicineActionMapper: ()=>void
@@ -18,11 +19,10 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
     componentDidMount(){
         if(this.props.allMedicine.length !== 0){
 
-        }else if(this.props.doctor){
-            console.log('call get AllMedicine mapper?');
-            this.props.getAllMedicineActionMapper()
         }else {
-
+            
+            console.log('call get AllMedicine mapper?');
+            this.props.allmedicine = this.props.getAllMedicineActionMapper()
         }
     }
 
@@ -36,12 +36,12 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
             return <AllMedicineInfoComponent allMedicine={ele} key={ele.medicineId}/>
         })
         return(
-            (this.props.doctor)?
+            /**(this.props.currUser)?*/
             <CardDeck elementsPerRow={4}>
                 {amDisplay}
             </CardDeck>
-            :
-            <Redirect to='/'/>
+            /**:
+            <Redirect to='/'/>*/
         )
     }
 }

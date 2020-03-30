@@ -9,6 +9,8 @@ interface IAllMedicineInfoProps{
 
 export class AllMedicineInfoComponent extends React.Component<IAllMedicineInfoProps,any>{
     render(){
+        console.log("1");
+        
         return(
             <Card>
                 <h2 style={{color:"red"}}>{this.props.allMedicine.name}</h2>
