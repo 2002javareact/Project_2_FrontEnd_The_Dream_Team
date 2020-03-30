@@ -9,24 +9,31 @@ import {medicationByIdReducer} from './medication-list-reducer'
 import { Dosage } from '../models/Dosage';
 import { submiteDosageReducer } from './saveNewDosage-Reducer';
 import { allMedicineReducer} from './all-medicine-reducer';
+import{ updateMedicine} from './update-medicine-reducer'
 
 export interface ILoginState{
   profile:User
   token:string
   errorMessage:string
 }
+
 export interface IDoctorListState{
   doctorList:Array<Doctor>,
   errorMessage:string
 }
+
 export interface IAllMedicineState{
   allMedicine:AllMedicine[]
   errorMessage:string
-  medicine:AllMedicine
+}
+
+export interface IUpdateMedicineState{
+  errorMessage:string
+  updatedMedicine:AllMedicine
 }
 
 export interface IMedicationByIdState{
-  medicationByIdArr:Array<Medication>,
+  medicationByIdArr:Medication[],
   errorMessage:string
 }
 export interface ISubmiteDosageState{
@@ -40,6 +47,7 @@ export interface IState{
   newDosage:ISubmiteDosageState
   medicine:IAllMedicineState
   medicationByIdArr: IMedicationByIdState
+  updateMedicine:IUpdateMedicineState
 
 }
 
@@ -49,5 +57,6 @@ export const state = combineReducers<IState>({
   newDosage:submiteDosageReducer,
   medicationByIdArr:medicationByIdReducer,
   medicine:allMedicineReducer,
+  updateMedicine:updateMedicine,
   //viewOneMedicine: viewOneMedicineReducer,
 })

@@ -6,8 +6,12 @@ export async function mTGetMedicationById(patient_Id:number):Promise<any> {
 
     
     try{
-    let response = await mTClient.get(`/medication/${patient_Id}`)
-    .catch((e) => {throw e});
+    let response = await mTClient.get('/medication/'+patient_Id)
+    .catch((e) => {     
+      throw e
+    });
+    console.log(response);
+    
     return response.data
 }catch (e) {
     if(e.response.status===500){

@@ -7,7 +7,7 @@ import { User } from '../../models/User';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 interface IViewAllMedicineProps {
-    medicine:AllMedicine
+    updateMedicine:AllMedicine
     errorMessage:string
     updateMedicineMapper:(o:any)=>void
 }
@@ -19,7 +19,7 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
         super(props)
         this.state = { 
             name:'',
-            number:0,
+            number:1,
             description:'', 
             
         }
@@ -44,11 +44,8 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
 
      updateDescription=(e:any)=>{
         this.setState({
-            
-            
             description:e.currentTarget.value
         })
-        console.log(this.state.description);
 
         }
 
