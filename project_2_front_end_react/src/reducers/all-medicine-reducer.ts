@@ -1,12 +1,15 @@
 import { AnyAction } from 'redux';
 import { IAllMedicineState } from '.';
 import { allMedicineTypes } from '../action-mappers/all-medicine-mapper'
+import { AllMedicine } from '../models/AllMedicine';
 
 
 // Initial State
 const initialState:IAllMedicineState={
   allMedicine:[],
-  errorMessage:""
+  errorMessage:"",
+  medicine:new AllMedicine('','',0)
+
 }
 
 export const allMedicineReducer = (state=initialState,action:AnyAction) => {
@@ -26,4 +29,6 @@ export const allMedicineReducer = (state=initialState,action:AnyAction) => {
     default: 
       return state
   }
+  
 }
+

@@ -10,7 +10,7 @@ const mapStateToProps = (state:IState) => {
         profile: state.login.profile,//state.profile.user check for is doctor? ???
 
         allMedicine:[],
-        errorMessage:'',
+        errorMessage:state.medicine.errorMessage,
     }
 }
 
