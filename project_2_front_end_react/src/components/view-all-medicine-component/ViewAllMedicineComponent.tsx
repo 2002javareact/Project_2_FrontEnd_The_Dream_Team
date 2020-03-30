@@ -1,10 +1,9 @@
 import React from 'react'
-//import { UserInfoComponent } from '../../user-info/UserInfoComponent';
 import { Redirect } from 'react-router';
 import { Doctor } from '../../models/Doctor';
-//import { CardDeck } from '../card-deck-component/CardDeckComponent';
+import { CardDeck } from '../card-deck-component/CardDeckComponent';
 import { AllMedicine } from '../../models/AllMedicine';
-import { AllMedicineInfoComponent } from '../all-medicine-info-component/AllMedicineInfoComponent';
+import { AllMedicineInfoComponent } from '../general-components/all-medicine-info-component/AllMedicineInfoComponent';
 
 interface IViewAllMedicineProps {
     doctor:Doctor
@@ -34,16 +33,15 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
     
     render(){
         let amDisplay = this.props.allMedicine.map((ele)=>{
-            return <AllMedicineInfoComponent allMedicine={ele} key={ele.userId}/>
+            return <AllMedicineInfoComponent allMedicine={ele} key={ele.medicineId}/>
         })
         return(
-            // (this.props.doctor)?
-            // <CardDeck elementsPerRow={4}>
-            //     {amDisplay}
-            // </CardDeck>
-            // :
-            // <Redirect to='/'/>
-            <div></div>
+            (this.props.doctor)?
+            <CardDeck elementsPerRow={4}>
+                {amDisplay}
+            </CardDeck>
+            :
+            <Redirect to='/'/>
         )
     }
 }

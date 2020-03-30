@@ -13,6 +13,7 @@ import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
 import { PatientComponent } from './components/patient-component/PatientComponent';
 import { CreateUserFormComponent } from './components/create-user-form-component/CreateUserFormComponent';
+import saveNewDosageComponent from './components/dosage/saveNewDosage-Container';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router >
-          <NavbarComponent />
+          <NavbarComponent/>
             <Switch>
               <Route path="/mainpage" component={MainpageComponent} />
               <Route path="/doctor-list" component={DoctorListComponent} />
@@ -29,6 +30,10 @@ function App() {
               <Route path="/create-user-form" component={CreateUserFormComponent}/>
               <Route path="/login" component={LoginComponent} />
               <Route path="/profile" component={ProfileComponent} />
+              <Route path="/dosage" component={saveNewDosageComponent} />
+              <Route path = "/medicine/add" /**component = {}*//>
+              <Route path = "/medicine/update" /**component = {}*//>
+              <Route path = "/medicine" /**component = {}*//>
             </Switch>
           </Router>
 
