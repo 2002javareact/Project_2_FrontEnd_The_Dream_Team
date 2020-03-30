@@ -1,15 +1,15 @@
-import { AllMedicine } from './../models/AllMedicine';
+import { AllMedicine } from '../models/AllMedicine';
 import { Dispatch } from 'redux';
-import { getAllMedicine} from '../remote/medicine-time/view-medicine-remote';
+import { updateMedicine } from '../remote/medicine-time/update-medicine-remote';
 
 export const loginTypes = {
   SUCCESSFUL_RETRIEVAL: "MT_SUCCESSFUL_RETRIEVAL",
   INTERNAL_SERVER: "MT_INTERNAL_SERVER_ERROR",
 }
 
-export const getAllMedicineActionMapper = () => async (dispatch:Dispatch) => {
+export const updateMedicineMapper = (am:AllMedicine) => async (dispatch:Dispatch) => {
   try {
-    let allMedicine = await getAllMedicine();
+    let allMedicine = await updateMedicine(am);
     console.log(allMedicine)
     dispatch({
       type: loginTypes.SUCCESSFUL_RETRIEVAL,

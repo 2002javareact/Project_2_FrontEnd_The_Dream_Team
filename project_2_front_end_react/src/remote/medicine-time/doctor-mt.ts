@@ -1,11 +1,11 @@
-import { InternalServerError } from './../../errors/InternalServerError';
+import { InternalServerError } from '../../errors/InternalServerError';
 import { mTClient } from './mt-client';
 
 
-export async function getAllMedicine():Promise<any> {
+export async function mTGetDoctorList():Promise<any> {
   try{
-    
-    let response = await mTClient.get('/Medicine')
+    let response = await mTClient.get('/doctors')
+      .catch((e)=>{throw e});
     return response.data
   }
   catch (e) {

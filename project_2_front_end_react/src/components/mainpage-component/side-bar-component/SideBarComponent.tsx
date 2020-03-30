@@ -8,13 +8,13 @@ export class SideBarComponent extends React.PureComponent{
       <Col lg={2} className="p-0">
         <ListGroup className="w-100" >
           <NavLink
-            to="/doctor-list-page"
+            to="/doctor-list"
             className="p-3">Doctor List Page</NavLink>
           <NavLink
-            to="/patient-list-page"
+            to="/patient-list"
             className="p-3">Patient List Page</NavLink>
           <NavLink
-            to="/medicine-list-page"
+            to="/medicine-list"
             className="p-3">Medicine List Page</NavLink>
         </ListGroup>
       </Col>
