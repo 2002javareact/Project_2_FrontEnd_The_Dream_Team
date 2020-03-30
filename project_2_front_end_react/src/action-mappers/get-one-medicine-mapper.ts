@@ -10,6 +10,8 @@ export const viewOneTypes = {
 export const getOneMedicineMapper = (id:number) => async (dispatch:Dispatch) => {
   try {
     let oneMedicine = await getOneMedicine(id);
+    console.log("1");
+    
     console.log(oneMedicine)
     dispatch({
       type: viewOneTypes.SUCCESSFUL_RETRIEVAL,

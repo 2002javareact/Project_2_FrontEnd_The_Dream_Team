@@ -8,7 +8,7 @@ import { doctorListReducer } from './doctor-list-reducer';
 import {medicationByIdReducer} from './medication-list-reducer'
 import { Dosage } from '../models/Dosage';
 import { submiteDosageReducer } from './saveNewDosage-Reducer';
-import { allMedicineReducer, viewOneMedicineReducer} from './all-medicine-reducer';
+import { allMedicineReducer} from './all-medicine-reducer';
 
 export interface ILoginState{
   profile:User

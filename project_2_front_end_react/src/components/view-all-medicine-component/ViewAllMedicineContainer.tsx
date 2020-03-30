@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {ViewAllMedicineComponent } from "./ViewAllMedicineComponent";
 import { Doctor } from "../../models/Doctor";
 import { getAllMedicineActionMapper } from "../../action-mappers/all-medicine-mapper";
+import { getOneMedicineMapper } from "../../action-mappers/get-one-medicine-mapper";
 
 
 const mapStateToProps = (state:IState) => {
@@ -14,7 +15,8 @@ const mapStateToProps = (state:IState) => {
 }
 
 const mapDispatchToProps = {
-    getAllMedicineActionMapper
+    getAllMedicineActionMapper,
+    getOneMedicineMapper
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(ViewAllMedicineComponent)

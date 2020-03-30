@@ -4,9 +4,10 @@ import { CardDeck } from '../card-deck-component/CardDeckComponent';
 import { AllMedicine } from '../../models/AllMedicine';
 import { AllMedicineInfoComponent } from '../general-components/all-medicine-info-component/AllMedicineInfoComponent';
 import { User } from '../../models/User';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 interface IViewAllMedicineProps {
-    currUser:User
+    medicine:AllMedicine
     errorMessage:string
     updateMedicine: (e:any)=>void
 }
@@ -24,17 +25,26 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
         }
     }
      updateName=(e:any)=>{
-        this.setState({name:e.currentTarget.value})
+        this.setState({
+            name:e.currentTarget.value
+        })
 
         }
 
      updateNum=(e:any)=>{
-        this.setState({num:e.currentTarget.value})
+        this.setState({
+            number:e.currentTarget.value
+        })
 
         }
 
      updateDescription=(e:any)=>{
-        this.setState({description:e.currentTarget.value})
+        this.setState({
+            
+            
+            description:e.currentTarget.value
+        })
+        console.log(this.state.description);
 
         }
 
@@ -43,25 +53,34 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
         let  updateMedi=  new AllMedicine(
             this.state.name,
             this.state.description,
-            this.state.num
+            this.state.number
         )
-        
-        if(this.props.currUser && updateMedi /**is type of doctor? */){
-            console.log('call getAll users mapper?');
-            this.props.updateMedicine(updateMedi)
-        }else {
-        }
+        this.props.updateMedicine(updateMedi)
     }
 
     render(){
         
         return(
+            
             //forms
-            (this.props.currUser)?
-            <CardDeck elementsPerRow={4}>
-            </CardDeck>
-            :
-            <Redirect to='/'/>
+            <Form>
+                <br></br>
+                <Row>
+                    <Col sm={6}>
+                        <Form.Control type="text" placeholder="ID Number" value={this.state.number} onChange={this.updateNum} required/>
+                    </Col>
+                    <Col sm={6}>
+                        <Form.Control type="text" placeholder={"Name"}  value={this.state.name} onChange={this.updateName} />
+                    </Col>
+                </Row>
+                <br></br>
+                <Row>
+                    <Col sm={12}>
+                        <Form.Control type="text" placeholder="Description" as="textarea" rows="3" value={this.state.description} onChange={this.updateDescription}/>
+                    </Col>
+                </Row>
+            <Button variant="primary" type="submit" onClick={this.setMedicine}>Submit</Button>
+        </Form>
         )
     }
 }

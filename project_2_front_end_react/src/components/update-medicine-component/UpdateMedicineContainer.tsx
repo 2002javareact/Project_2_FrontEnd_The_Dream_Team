@@ -8,8 +8,7 @@ import { updateMedicine } from "../../remote/medicine-time/update-medicine-remot
 const mapStateToProps = (state:IState) => {
     return {
         profile: state.login.profile,//state.profile.user check for is doctor? ???
-
-        allMedicine:[],
+        medicine:state.medicine.medicine,
         errorMessage:state.medicine.errorMessage,
     }
 }

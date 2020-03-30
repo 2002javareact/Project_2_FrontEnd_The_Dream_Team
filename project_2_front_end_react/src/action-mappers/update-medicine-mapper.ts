@@ -2,19 +2,19 @@ import { AllMedicine } from '../models/AllMedicine';
 import { Dispatch } from 'redux';
 import { updateMedicine } from '../remote/medicine-time/update-medicine-remote';
 
-export const loginTypes = {
+export const updateMedicineTypes = {
   SUCCESSFUL_RETRIEVAL: "MT_SUCCESSFUL_RETRIEVAL",
   INTERNAL_SERVER: "MT_INTERNAL_SERVER_ERROR",
 }
 
 export const updateMedicineMapper = (am:AllMedicine) => async (dispatch:Dispatch) => {
   try {
-    let allMedicine = await updateMedicine(am);
-    console.log(allMedicine)
+    let medicine = await updateMedicine(am);
+    console.log(medicine)
     dispatch({
-      type: loginTypes.SUCCESSFUL_RETRIEVAL,
+      type: updateMedicineTypes.SUCCESSFUL_RETRIEVAL,
       payload:{
-        allMedicine
+        medicine
       }
     })
   }
@@ -24,7 +24,7 @@ export const updateMedicineMapper = (am:AllMedicine) => async (dispatch:Dispatch
     if(e.status === 500) {
       {
       dispatch({
-        type:loginTypes.INTERNAL_SERVER,
+        type:updateMedicineTypes.INTERNAL_SERVER,
         payload: {
           errorMessage: "Something went wrong"
         }

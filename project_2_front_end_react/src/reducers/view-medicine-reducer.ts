@@ -16,7 +16,7 @@ export const viewOneMedicineReducer = (state=initialState,action:AnyAction) => {
       case viewOneTypes.SUCCESSFUL_RETRIEVAL:{
         return {
           ...state,
-          medicine:action.payload.medicine
+          medicine:action.payload.oneMedicine
         }
       }
       case viewOneTypes.INTERNAL_SERVER:{

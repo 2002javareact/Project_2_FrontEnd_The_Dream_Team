@@ -11,6 +11,7 @@ interface IViewAllMedicineProps {
     allMedicine:AllMedicine[]
     errorMessage:string
     getAllMedicineActionMapper: ()=>any
+    getOneMedicineMapper:(e:any)=>any
 }
 
 
@@ -29,7 +30,7 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
     
     render(){
         let amDisplay = this.props.allMedicine.map((ele:any)=>{
-            return <AllMedicineInfoComponent allMedicine={ele} key={ele.medicineId}/>
+            return <AllMedicineInfoComponent getOneMedicine={this.props.getOneMedicineMapper(ele.medicineId)} allMedicine={ele} key={ele.medicineId}/>
         })
         console.log(this.props.allMedicine);
         
