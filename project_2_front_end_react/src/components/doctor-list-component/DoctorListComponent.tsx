@@ -14,9 +14,7 @@ interface DoctorListProps {
 
 export class DoctorListComponent extends React.Component<DoctorListProps,any>{
   componentDidMount(){
-    if(this.props.doctorList.length===0){
-      this.props.mTDoctorListActionMapper();
-    }
+    this.props.mTDoctorListActionMapper();
   }
   render(){
     return(
@@ -34,7 +32,6 @@ export class DoctorListComponent extends React.Component<DoctorListProps,any>{
                         <th>Name</th>
                         <th>Contact</th>
                         <th>{}</th>
-                        <th>{}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -44,11 +41,6 @@ export class DoctorListComponent extends React.Component<DoctorListProps,any>{
                             <td>{el.id}</td>
                             <td>{el.firstName} {el.lastName}</td>
                             <td>{el.email + '\n' + el.phoneNumber}</td>
-                            <td><NavLink
-                                to={{
-                                  pathname:"/doctor",
-                                  state:{doctorId:el.id}
-                                  }}>View Page</NavLink></td>
                             <td><NavLink
                                 to={{
                                   pathname:"/patient-list",

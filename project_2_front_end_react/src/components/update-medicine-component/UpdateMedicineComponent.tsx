@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import { Redirect } from 'react-router';
 import { CardDeck } from '../card-deck-component/CardDeckComponent';
 import { AllMedicine } from '../../models/AllMedicine';
@@ -9,7 +9,7 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 interface IViewAllMedicineProps {
     medicine:AllMedicine
     errorMessage:string
-    updateMedicine: (e:any)=>void
+    updateMedicineMapper:(o:any)=>void
 }
 
 
@@ -23,6 +23,10 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
             description:'', 
             
         }
+        this.updateName=this.updateName.bind(this);
+        this.updateNum=this.updateNum.bind(this);
+        this.updateDescription=this.updateDescription.bind(this);
+        this.setMedicine=this.setMedicine.bind(this);
     }
      updateName=(e:any)=>{
         this.setState({
@@ -48,14 +52,15 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
 
         }
 
-    setMedicine = () =>{
-
+     async setMedicine (e:SyntheticEvent){
+        e.preventDefault();
         let  updateMedi=  new AllMedicine(
             this.state.name,
             this.state.description,
             this.state.number
         )
-        this.props.updateMedicine(updateMedi)
+        const up = await this.props.updateMedicineMapper(updateMedi);
+
     }
 
     render(){
@@ -63,7 +68,7 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
         return(
             
             //forms
-            <Form>
+            <Form onSubmit={this.setMedicine}>
                 <br></br>
                 <Row>
                     <Col sm={6}>
@@ -79,7 +84,7 @@ export class UpdateMedicineComponent extends React.Component<IViewAllMedicinePro
                         <Form.Control type="text" placeholder="Description" as="textarea" rows="3" value={this.state.description} onChange={this.updateDescription}/>
                     </Col>
                 </Row>
-            <Button variant="primary" type="submit" onClick={this.setMedicine}>Submit</Button>
+            <Button variant="primary" type="submit" >Submit</Button>
         </Form>
         )
     }

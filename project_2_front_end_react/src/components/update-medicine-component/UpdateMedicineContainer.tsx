@@ -2,7 +2,7 @@ import { IState } from "../../reducers";
 import { connect } from "react-redux";
 import {UpdateMedicineComponent } from "./UpdateMedicineComponent";
 import { Doctor } from "../../models/Doctor";
-import { updateMedicine } from "../../remote/medicine-time/update-medicine-remote";
+import {updateMedicineMapper} from "../../action-mappers/update-medicine-mapper"
 
 
 const mapStateToProps = (state:IState) => {
@@ -14,7 +14,7 @@ const mapStateToProps = (state:IState) => {
 }
 
 const mapDispatchToProps = {
-    updateMedicine
+    updateMedicineMapper
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateMedicineComponent)

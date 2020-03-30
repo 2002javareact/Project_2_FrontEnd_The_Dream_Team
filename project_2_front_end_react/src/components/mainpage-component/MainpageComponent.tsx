@@ -2,12 +2,28 @@ import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import { SideBarComponent } from './side-bar-component/SideBarComponent';
 import { User } from '../../models/User';
+import { Dosage } from '../../models/Dosage';
 
 interface MainpageProps {
   profile:User
 }
 
-export class MainpageComponent extends React.Component<MainpageProps,any>{
+interface MainpageState {
+  dosageList:Array<Dosage>
+}
+
+export class MainpageComponent extends React.Component<MainpageProps,MainpageState>{
+  constructor(props:any){
+    super(props);
+    this.state = {
+      dosageList: []
+    }
+  }
+  componentDidMount(){
+    // if(this.props.profile.roleType==="Patient"){
+    //   const dosageList = m
+    // }
+  }
   render(){
     return(
       <Container fluid>

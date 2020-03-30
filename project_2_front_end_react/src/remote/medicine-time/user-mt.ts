@@ -34,21 +34,22 @@ export async function mTUpdateUser(user:UpdateUserDTO){
 
 export async function mTCreateUser(user:CreateUserDTO){
   try{
+    console.log(user);
     let response;
     if(user.roleType==='Admin'){
-      response = await mTClient.post('/admins',{
+      response = await mTClient.post('/admins',
         user
-      })
+      )
     }
     else if(user.roleType==='Doctor'){
-      response = await mTClient.post('/doctors',{
+      response = await mTClient.post('/doctors',
         user
-      })
+      )
     }
     else if(user.roleType==='Patient'){
-      response = await mTClient.post('/patients',{
+      response = await mTClient.post('/patients',
         user
-      })
+      )
     }
     else{
       throw new InternalServerError();

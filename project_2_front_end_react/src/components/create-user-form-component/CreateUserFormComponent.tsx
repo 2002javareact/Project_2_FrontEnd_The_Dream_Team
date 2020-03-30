@@ -1,8 +1,10 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React, { SyntheticEvent } from 'react';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { SideBarComponent } from '../mainpage-component/side-bar-component/SideBarComponent';
 import { NavLink } from 'react-router-dom';
 import { User } from '../../models/User';
+import { mTCreateUser } from '../../remote/medicine-time/user-mt';
+import { CreateUserDTO } from '../../dtos/CreateUserDTO';
 
 interface CreateUserFormProps{
   profile:User
@@ -16,7 +18,8 @@ interface CreateUserFormState{
   email:string,
   username:string,
   roleType:string,
-  password:string
+  password:string,
+  isSuccessful:number
 }
 
 export class CreateUserFormComponent extends React.Component<CreateUserFormProps,CreateUserFormState>{
@@ -29,8 +32,9 @@ export class CreateUserFormComponent extends React.Component<CreateUserFormProps
       phoneNumber: 0,
       email:'',
       username:'',
-      roleType:'',
-      password:''
+      roleType:'Admin',
+      password:'',
+      isSuccessful:1
     }
     this.handlerFirstName=this.handlerFirstName.bind(this);
     this.handlerLastName=this.handlerLastName.bind(this);
@@ -50,8 +54,20 @@ export class CreateUserFormComponent extends React.Component<CreateUserFormProps
   handlerUsername(e:any){this.setState({username:e.target.value})}
   handlerPassword(e:any){this.setState({password:e.target.value})}
   handlerRoleType(e:any){this.setState({roleType:e.target.value})}
-  submitCreateUser(){
-    
+  async submitCreateUser(e:SyntheticEvent){
+    e.preventDefault();
+    const user = new CreateUserDTO(
+      0,this.state.firstName,this.state.lastName,this.state.dateOfBirth,this.state.phoneNumber,this.state.email,this.state.username,this.state.password,this.state.roleType
+    )
+    let response:User = await mTCreateUser(user)
+      .catch(e=>console.log(e));
+    if(response.id!==0){
+      this.setState({isSuccessful:2})
+    }
+    else{
+      this.setState({isSuccessful:0})
+    }
+    setTimeout(()=>{this.setState({isSuccessful:1})},5000)
   }
   render(){
     return(
@@ -59,6 +75,12 @@ export class CreateUserFormComponent extends React.Component<CreateUserFormProps
         <Row>
           <SideBarComponent profile={this.props.profile}/>
           <Col lg={10} className="p-0">
+            {this.state.isSuccessful===2 &&
+              <Alert type="success">Successful!</Alert>
+            }
+            {this.state.isSuccessful===0 &&
+              <Alert type="danger">Failed!</Alert>
+            }
             <Form onSubmit={this.submitCreateUser}>
               <Row>
                 <Col>
@@ -114,7 +136,7 @@ export class CreateUserFormComponent extends React.Component<CreateUserFormProps
                 <Col>
                   <Form.Group controlId="roleType">
                     <Form.Label>Role Type</Form.Label>
-                    <Form.Control as="select" onChange={this.handlerPassword} value={this.state.roleType}>
+                    <Form.Control as="select" onChange={this.handlerRoleType} value={this.state.roleType}>
                       <option>Admin</option>
                       <option>Doctor</option>
                       <option>Patient</option>

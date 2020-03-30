@@ -38,10 +38,18 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
         isShow:false
       })
     }
-    if(this.props.profile.roleType==="Doctor"){
+    else if(this.props.profile.roleType==="Doctor"){
       const patientList = await mTGetPatientListByDoctorId(this.props.profile.id);
       this.setState({
         patientList: patientList
+      })
+    }
+    else{
+      const patientList = await mTGetPatientListByDoctorId(0)
+      console.log(patientList)
+      this.setState({
+        isShow:true,
+        patientList: patientList,
       })
     }
   }
@@ -75,9 +83,13 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
                 <Row>
                   <Col>
                     {this.state.isShow?(
-                      <Button onClick={()=>{this.setState({isShow:false})}}>Show Patients with a Doctor</Button>
+                      <React.Fragment>
+                        <h1>Showing Patients with no assigned Doctor</h1>
+                        <Button onClick={()=>{this.setState({isShow:false})}}>Show Patients with a Doctor</Button>
+                      </React.Fragment>
                     ):(
                       <React.Fragment>
+                        <h1>Showing Patients with an assigned Doctor</h1>
                         <Button onClick={this.submitDoctorId2}>Show Patients without a Doctor</Button>
                         <Form onSubmit={(e:any)=>this.submitDoctorId(e)}>
                           <Form.Group as={Row}>

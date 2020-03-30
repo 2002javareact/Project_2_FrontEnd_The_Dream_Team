@@ -12,7 +12,7 @@ import PatientListComponent from './components/patient-list-component/PatientLis
 import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
 import PatientComponent from './components/patient-component/PatientContainer';
-import { CreateUserFormComponent } from './components/create-user-form-component/CreateUserFormComponent';
+import CreateUserFormComponent from './components/create-user-form-component/CreateUserFormContainer';
 import saveNewDosageComponent from './components/dosage/saveNewDosage-Container';
 import ViewAllMedicineComponent from './components/view-all-medicine-component/ViewAllMedicineContainer';
 import  UpdateMedicineComponent  from './components/update-medicine-component/UpdateMedicineContainer';

@@ -13,9 +13,14 @@ export class SideBarComponent extends React.PureComponent<SideBarProps,any>{
       <Col lg={2} className="p-0">
         <ListGroup className="w-100" >
           {this.props.profile.roleType==='Admin'&& 
-            <NavLink
-              to="/doctor-list"
-              className="p-3">Doctor List Page</NavLink>
+            <React.Fragment>
+              <NavLink
+                to="/doctor-list"
+                className="p-3">Doctor List Page</NavLink>
+              <NavLink
+                to="/create-user-form"
+                className="p-3">Create User Form</NavLink>
+            </React.Fragment>
           }
           {this.props.profile.roleType==='Doctor'||this.props.profile.roleType==='Admin'&& 
             <NavLink
@@ -24,12 +29,12 @@ export class SideBarComponent extends React.PureComponent<SideBarProps,any>{
           }
           {this.props.profile.roleType==='Patient'&&
             <NavLink
-              to="/medicine-list"
-              className="p-3">Medicine List Page</NavLink>
-          }
-            <NavLink
               to="/medication-list"
               className="p-3">Medication List Page</NavLink>
+          }
+            <NavLink
+              to="/medicine"
+              className="p-3">Medicine List Page</NavLink>
         </ListGroup>
       </Col>
     )
