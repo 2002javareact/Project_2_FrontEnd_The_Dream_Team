@@ -4,9 +4,10 @@ import { Patient } from '../../models/Patient';
 import { SideBarComponent } from '../mainpage-component/side-bar-component/SideBarComponent';
 import { NavLink } from 'react-router-dom';
 import { mTGetPatientListByDoctorId } from '../../remote/medicine-time/patient-mt'
+import { User } from '../../models/User';
 
 interface PatientListProps {
-  doctorId:number,
+  profile:User,
   location:any
 }
 
@@ -32,6 +33,12 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
         patientList: patientList
       })
     }
+    if(this.props.profile.roleType==="Doctor"){
+      const patientList = await mTGetPatientListByDoctorId(this.props.profile.id);
+      this.setState({
+        patientList: patientList
+      })
+    }
   }
   handlerDoctorId(e:any){
     this.setState({doctorId:e.target.value})
@@ -47,30 +54,32 @@ export class PatientListComponent extends React.Component<PatientListProps,Patie
     return(
       <Container fluid>
         <Row>
-          <SideBarComponent/>
+          <SideBarComponent profile={this.props.profile}/>
           <Col lg={10} className="p-0">
             <Container>
-              <Row>
-                <Col>
-                <Tabs defaultActiveKey="noDoctor" id="uncontrolled-tab-example">
-                  <Tab eventKey="noDoctor" title="Patients without a Doctor" onClick={()=>this.submitDoctorId(0)}>
-                  </Tab>
-                  <Tab eventKey="Doctor" title="Patients with a Doctor">
-                    <Form onSubmit={(e:any)=>this.submitDoctorId(e)}>
-                      <Form.Group as={Row}>
-                        <Form.Label column sm={2}>Doctor ID:</Form.Label>
-                        <Col sm={8}>
-                          <Form.Control defaultValue={this.state.doctorId} type="number" onChange={this.handlerDoctorId} />
-                        </Col>
-                        <Col sm={2}>
-                          <Button>Search</Button>
-                        </Col>
-                      </Form.Group>
-                    </Form>
-                  </Tab>
-                </Tabs>
-                </Col>
-              </Row>
+              {this.props.profile.roleType==="Admin" && 
+                <Row>
+                  <Col>
+                  <Tabs defaultActiveKey="noDoctor" id="uncontrolled-tab-example">
+                    <Tab eventKey="noDoctor" title="Patients without a Doctor" onClick={()=>this.submitDoctorId(0)}>
+                    </Tab>
+                    <Tab eventKey="Doctor" title="Patients with a Doctor">
+                      <Form onSubmit={(e:any)=>this.submitDoctorId(e)}>
+                        <Form.Group as={Row}>
+                          <Form.Label column sm={2}>Doctor ID:</Form.Label>
+                          <Col sm={8}>
+                            <Form.Control defaultValue={this.state.doctorId} type="number" onChange={this.handlerDoctorId} />
+                          </Col>
+                          <Col sm={2}>
+                            <Button>Search</Button>
+                          </Col>
+                        </Form.Group>
+                      </Form>
+                    </Tab>
+                  </Tabs>
+                  </Col>
+                </Row>
+              }
               <Row>
                 <Col>
                   <Table>

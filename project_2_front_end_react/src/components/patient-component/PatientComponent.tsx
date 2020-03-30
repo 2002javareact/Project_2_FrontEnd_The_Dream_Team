@@ -33,18 +33,13 @@ export class PatientComponent extends React.Component<PatientProps,PatientState>
       }
     }
   }
-  // async saveDoctorToPatient(e:any){
-  //   e.preventDefault();
-  //   const patient = await mTSaveDoctorToPatient(this.state.doctor.id,this.state.patient.id);
-  //   this.setState({patient:patient})
   render(){
     return(
       <Container fluid>
         <Row>
-          <SideBarComponent/>
-          <Col lg={10} className="p-0">
-            {/* if doctor id exist save doctor to patient*/ }
-            {(this.props.profile.roleType==='Admin'||this.props.profile.roleType==='Doctor') && 
+          <SideBarComponent profile={this.props.profile}/>
+          {(this.props.profile.roleType==='Admin'||this.props.profile.roleType==='Doctor') && 
+            <Col lg={10} className="p-0">
               <NavLink
                 to={{
                   pathname:"/add-doctor-to-patient",
@@ -52,9 +47,14 @@ export class PatientComponent extends React.Component<PatientProps,PatientState>
                     patient:this.props.location.state.patient
                   }
                 }}>Add/Replace a Doctor to Patient</NavLink>
-            }
-            {/* if medication list exist select medication where date is today */}
-          </Col>
+            {/* TODO: if medication list exist select medication where date is today */}
+            </Col>
+          }
+          {this.props.profile.roleType==='Patient' && 
+            <Col lg={10} className="p-0">
+              
+            </Col>  
+          }
         </Row>
       </Container>
     )
