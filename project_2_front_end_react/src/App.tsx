@@ -10,7 +10,7 @@ import { MainpageComponent } from './components/mainpage-component/MainpageCompo
 import DoctorListComponent from './components/doctor-list-component/DoctorListContainer';
 import LoginComponent from './components/login-component/LoginContainer';
 import ProfileComponent from './components/profile-component/ProfileContainer';
-
+import {MedicationByIdComponent} from './components/medication-by-id-component/MedicationByIdComponent';
 function App() {
   return (
     <div className="App">
@@ -26,6 +26,7 @@ function App() {
               <Route path = "/medicine/add" /**component = {}*//>
               <Route path = "/medicine/update" /**component = {}*//>
               <Route path = "/medicine" /**component = {}*//>
+              <Route path = "medication" component= {MedicationByIdComponent}/>
             </Switch>
           </Router>
 
