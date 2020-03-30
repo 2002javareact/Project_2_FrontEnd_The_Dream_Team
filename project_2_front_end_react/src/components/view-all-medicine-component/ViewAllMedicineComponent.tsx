@@ -29,6 +29,8 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
     
     
     render(){
+        console.log(this.props.allMedicine);
+        
         let amDisplay = this.props.allMedicine.map((ele:any)=>{
             return <AllMedicineInfoComponent getOneMedicine={this.props.getOneMedicineMapper(ele.medicineId)} allMedicine={ele} key={ele.medicineId}/>
         })
