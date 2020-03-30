@@ -6,7 +6,7 @@ import { User } from '../models/User';
 
 // Initial State
 const initialState:ILoginState={
-  profile: new User(0,'','',0,0,'','',''),
+  profile: new User(0,'','',new Date(0),0,'','',''),
   token: "",
   errorMessage:""
 }

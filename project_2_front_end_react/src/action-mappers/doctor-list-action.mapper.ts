@@ -1,6 +1,6 @@
 import { Doctor } from '../models/Doctor';
 import { Dispatch } from 'redux';
-import { mTGetDoctorList } from '../remote/medicine-time/doctor-list-mt';
+import { mTGetDoctorList } from '../remote/medicine-time/doctor-mt';
 
 export const doctorListTypes = {
   SUCCESSFUL: "MT_SUCCESSFUL",

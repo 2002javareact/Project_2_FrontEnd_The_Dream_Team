@@ -1,4 +1,4 @@
-import { InternalServerError } from './../../errors/InternalServerError';
+import { InternalServerError } from '../../errors/InternalServerError';
 import { mTClient } from './mt-client';
 
 

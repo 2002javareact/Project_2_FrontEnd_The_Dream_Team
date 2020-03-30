@@ -9,8 +9,9 @@ import { addMedicineMapper } from "../../action-mappers/add-new-medicine-mapper"
 
 const mapStateToProps = (state:IState) => {
     return {
-        doctor:new Doctor([],0,'','',0,0,'','',''),//state.profile.user,
-        addMedicine:new AllMedicine('','',0),//state.addMedicine.medicine,
+
+        doctor:new Doctor([],0,'','',new Date(0),0,'','',''),//state.profile.user,
+        //addMedicine:new AllMedicine('','',0),//state.addMedicine.medicine,
         errorMessage: ''//error messagem from add medicine,
     }
 }

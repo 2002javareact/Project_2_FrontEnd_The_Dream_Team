@@ -22,10 +22,12 @@ export class ViewAllMedicineComponent extends React.Component<IViewAllMedicinePr
         }else {
             
             console.log('call get AllMedicine mapper?');
-            this.props.allmedicine = this.props.getAllMedicineActionMapper()
+            this.props.getAllMedicineActionMapper()
         }
     }
-
+    setAllMedicine = () ={
+        
+    }
     print = ()=>{
         console.log("print");
         console.log(this.state);

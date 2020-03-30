@@ -47,7 +47,7 @@ export const mTLogoutActionMapper = () => (dispatch:Dispatch) => {
   dispatch({
     type: loginTypes.LOGOUT,
     payload:{
-      profile: new User(0,'','',0,0,'','','')
+      profile: new User(0,'','',new Date(0),0,'','','')
     }
   })
 }
