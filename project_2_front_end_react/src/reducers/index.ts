@@ -6,6 +6,7 @@ import { Doctor } from '../models/Doctor';
 import { doctorListReducer } from './doctor-list-reducer';
 import { Dosage } from '../models/Dosage';
 import { submiteDosageReducer } from './saveNewDosage-Reducer';
+import { allMedicineReducer } from './all-medicine-reducer';
 
 export interface ILoginState{
   profile:User
@@ -17,24 +18,24 @@ export interface IDoctorListState{
   errorMessage:string
 }
 export interface IAllMedicineState{
-  currentMedicine:AllMedicine
+  allMedicine:AllMedicine[],
+  errorMessage:string
 }
 export interface ISubmiteDosageState{
   SubmiteDosege:Dosage,
   errorMessage:string
 }
+
 export interface IState{
   login: ILoginState,
   doctorList: IDoctorListState,
   newDosage:ISubmiteDosageState
-  // @Taco I couldnt find ur medicine reducer so i commented this out
-  //medicine:IAllMedicineState
-  //fair
+  medicine:IAllMedicineState
 }
 
 export const state = combineReducers<IState>({
   login:loginReducer,
   doctorList:doctorListReducer,
   newDosage:submiteDosageReducer,
-  //medicine:allMedicineReducer
+  medicine:allMedicineReducer
 })

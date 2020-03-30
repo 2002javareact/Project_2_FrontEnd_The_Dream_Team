@@ -8,9 +8,8 @@ import { getAllMedicineActionMapper } from "../../action-mappers/all-medicine-ma
 const mapStateToProps = (state:IState) => {
     return {
         profile: state.login.profile,//state.profile.user check for is doctor? ???
-
-        allMedicine:[],
-        errorMessage:'',
+        allMedicine:state.medicine.allMedicine || [],
+        errorMessage:state.medicine.errorMessage,
     }
 }
 
