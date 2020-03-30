@@ -7,8 +7,7 @@ import { AllMedicine } from '../models/AllMedicine';
 // Initial State
 const initialState:IAllMedicineState={
   allMedicine:[],
-  errorMessage:"",
-  medicine:new AllMedicine('','',0)
+  errorMessage:""
 }
 
 export const viewOneMedicineReducer = (state=initialState,action:AnyAction) => {

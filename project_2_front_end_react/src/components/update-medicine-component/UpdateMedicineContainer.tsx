@@ -2,19 +2,18 @@ import { IState } from "../../reducers";
 import { connect } from "react-redux";
 import {UpdateMedicineComponent } from "./UpdateMedicineComponent";
 import { Doctor } from "../../models/Doctor";
-import { updateMedicine } from "../../remote/medicine-time/update-medicine-remote";
-
+import { updateMedicineMapper } from "../../action-mappers/update-medicine-mapper";
 
 const mapStateToProps = (state:IState) => {
     return {
         profile: state.login.profile,//state.profile.user check for is doctor? ???
-        medicine:state.medicine.medicine,
+        updateMedicine:state.updateMedicine.updatedMedicine,
         errorMessage:state.medicine.errorMessage,
     }
 }
 
 const mapDispatchToProps = {
-    updateMedicine
+    updateMedicineMapper
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(UpdateMedicineComponent)

@@ -6,7 +6,9 @@ export async function updateMedicine(am:AllMedicine):Promise<any> {
   let req = {
       am
   }
+  
   try{
+    
     let response = await mTClient.patch('/Medicine', req)
     return response.data
   }
