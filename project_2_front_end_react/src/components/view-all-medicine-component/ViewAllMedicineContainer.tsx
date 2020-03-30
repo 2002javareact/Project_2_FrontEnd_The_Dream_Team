@@ -13,7 +13,7 @@ import { Doctor } from "../../models/Doctor";
 
 const mapStateToProps = (state:IState) => {
     return {
-        doctor: new Doctor([],0,'','',0,0,'','',''),//state.login.doctor, //???
+        doctor: new Doctor([],0,'','',new Date(0),0,'','',''),//state.login.doctor, //???
         allMedicine:[],
         errorMessage:'',
        // getAllMedicineActionMapper: ()=>void  // change

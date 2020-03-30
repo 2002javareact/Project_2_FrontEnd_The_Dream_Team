@@ -70,8 +70,8 @@ export class LoginComponent extends React.Component<ILoginProps,ILoginState> {
 
 
           <form className="login" onSubmit={this.submitLogin}>
-          <input onChange={this.handlerUsername} type="text" placeholder="Username"/>
-          <input type="password" onChange={this.handlerPassword} placeholder="Password" />
+          <input onChange={this.handlerUsername} type="text" value={this.state.username} placeholder="Username"/>
+          <input type="password" onChange={this.handlerPassword} value={this.state.password} placeholder="Password" />
           <p>Forgot your password?</p>
           <button type="submit">
             Login 

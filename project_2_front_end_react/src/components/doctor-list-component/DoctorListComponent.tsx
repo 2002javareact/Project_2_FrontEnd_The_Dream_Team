@@ -45,9 +45,15 @@ export class DoctorListComponent extends React.Component<DoctorListProps,any>{
                             <td>{el.firstName} {el.lastName}</td>
                             <td>{el.email + '\n' + el.phoneNumber}</td>
                             <td><NavLink
-                                to="/doctor/:id">View Page</NavLink></td>
+                                to={{
+                                  pathname:"/doctor",
+                                  state:{doctorId:el.id}
+                                  }}>View Page</NavLink></td>
                             <td><NavLink
-                                to="/patient-list">View Patient List</NavLink></td>
+                                to={{
+                                  pathname:"/patient-list",
+                                  state:{doctorId:el.id}
+                                  }}>View Patient List</NavLink></td>
                           </tr>
                         )
                       ):(
