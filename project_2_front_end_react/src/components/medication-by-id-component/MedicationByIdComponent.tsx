@@ -8,13 +8,10 @@ import {Table} from 'react-bootstrap';
 
 interface IMedicationByIdProps {
 
-    medicationByIdArr:Array<Medication>, 
+    medicationByIdArr:Medication[], 
     profile:User,
     mTGetMedicationByIdActionMapper: (patient_id:number) => void, 
     errorMessage:string
-    
-
-
 }
 
 

@@ -8,6 +8,8 @@ export const updateMedicineTypes = {
 }
 
 export const updateMedicineMapper = (am:AllMedicine) => async (dispatch:Dispatch) => {
+  console.log("im going through the mapper");
+  
   try {
     let medicine = await updateMedicine(am);
     console.log(medicine)

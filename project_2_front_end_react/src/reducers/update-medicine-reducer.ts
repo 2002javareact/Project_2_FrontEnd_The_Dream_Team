@@ -1,14 +1,13 @@
 import { AnyAction } from 'redux';
-import { IAllMedicineState } from '.';
+import { IUpdateMedicineState } from '.';
 import { updateMedicineTypes } from '../action-mappers/update-medicine-mapper'
 import { AllMedicine } from '../models/AllMedicine';
 
 
 // Initial State
-const initialState:IAllMedicineState={
-  allMedicine:[],
+const initialState:IUpdateMedicineState={
   errorMessage:"",
-  medicine:new AllMedicine('','',0)
+  updatedMedicine:new AllMedicine('','',0)
 
 }
 
@@ -17,10 +16,9 @@ export const updateMedicine = (state=initialState,action:AnyAction) => {
     
     switch(action.type){
     case updateMedicineTypes.SUCCESSFUL_RETRIEVAL:{
-    console.log(action.payload.medicine);
       return {
         ...state,
-        medicine:action.payload.medicine
+        updateMedicine:action.payload.updateMedicine
       }
     }
     case updateMedicineTypes.INTERNAL_SERVER:{
